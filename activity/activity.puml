@@ -1,0 +1,49 @@
+@startuml Login
+' Styles
+skinparam Shadowing false
+skinparam ArrowColor black
+
+skinparam activity {
+  BorderColor black
+  BackgroundColor #9282A2
+  FontColor white
+
+  DiamondBackgroundColor #9282A2
+  DiamondBorderColor black
+  DiamondFontColor white
+}
+
+skinparam note {
+  BorderColor black
+  BackgroundColor #9282A2
+  FontColor white
+  TextAlignment center
+}
+
+' Styles </>
+
+' General '
+skinparam padding 12
+skinparam DefaultTextAlignment center
+' General </>'
+
+
+rectangle "Cliente is registred"{
+  start
+    note left
+        Clients is registered
+    endnote
+    
+    repeat :Client enters login\nname and\npassword;
+    backward: Invalid\nlogin/password;
+    repeat while (Correct\nlogin and\npassword?) is (no)
+      ->yes;
+    :Client\nsuccessfully logs\nin;
+  stop
+  note right
+    Clients log in to
+    the system
+  endnote
+}
+
+@enduml

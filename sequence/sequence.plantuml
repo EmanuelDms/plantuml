@@ -1,0 +1,44 @@
+@startuml HelloWorld
+' skinparam Style strictuml
+skinparam SequenceMessageAlignment center
+' skinparam ResponseMessageBelowArrow true
+
+actor Alice as A #yellow
+actor Bob as B #GreenYellow
+
+participant L as "I have a really\nlong name" #99ff99
+
+actor actor as Foo1
+boundary boundary as Foo2
+control control as Foo3
+entity entity as Foo4
+database database as Foo5
+collections collections as Foo6
+queue queue as Foo7
+
+L -> Foo1 : To actor
+A -> B : Authentication Request
+
+L -> Foo2 : To boundary
+A <-- B : Authentication Response
+
+L -> Foo3 : To control
+A -> B : Authentication Request
+
+L -> Foo4 : To entity
+A <-- B : Authentication Response
+
+L -> Foo5 : To database
+A -> B : Authentication Request
+
+L -> Foo6 : To collections
+A <-- B : Authentication Response
+
+L -> Foo7 : To queue
+A -> B : Authentication Request
+
+
+B <- L: Log transaction
+
+
+@enduml

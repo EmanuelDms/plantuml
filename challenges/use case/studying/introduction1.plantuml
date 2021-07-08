@@ -1,0 +1,14 @@
+@startuml Introduction1
+' Stick man
+:User: --> (Use)
+"Main Admin" as Admin
+"Use the application" as (Use)
+Admin --> (Admin the application)
+
+' Awesome man
+skinparam actorStyle awesome
+:User1: --> (Use1)
+"Main Admin" as Admin1
+"Use the application" as (Use1)
+Admin1 --> (Admin the new application)
+@enduml

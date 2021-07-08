@@ -1,0 +1,71 @@
+@startuml Notes
+header Notes
+title Notes
+
+actor Alice as A
+actor Bob as B
+actor Charlie as C
+
+A -> B : Hello
+note left : this is a first note
+
+B -> A : Ok
+note right  : this is another note
+
+B -> B : I am thinking
+note left
+a note
+can also
+be defined
+on several lines 
+end note
+
+newpage Some Other Notes
+note left of A #aqua
+This is displayed
+left of Alice
+end note 
+
+note right of A: This is displayed right of Alice.
+
+note over A #orange: This is displayed over Alice.
+
+note over A, B #FFAAAA: This is displayed\n over Bob and Alice.
+
+note over A, B
+This is yet another example 
+of a long note.
+end note
+
+newpage Changing Notes Shape
+
+caller -> server : ConReq
+
+hnote over caller : idle
+
+caller <- server : conConf
+
+rnote over server
+  "r" as rectangle
+  "h" as hexagon
+endrnote
+
+rnote over server
+  this is
+  on several
+  lines
+endrnote
+
+hnote over caller
+  this is
+  on several
+  lines
+endhnote
+
+newpage Note over all participants
+
+A -> B : m1
+B -> C : m2
+
+note over A, C: Old method for note over all part. with:\n
+@enduml

@@ -1,0 +1,21 @@
+@startuml GroupMessage
+actor Alice as A #white
+actor Bob as B #white
+A -> B : Authentication Request
+
+alt successful case
+  B -> A : Authentication Accepted
+else some kind of failure
+  B -> A : Authentication Failure
+  group My own label
+    A -> Log: Log attack start
+    loop 1000 times
+      A -> B : DNS Attack
+      A  B : DNS Response
+    end
+    A -> Log : Log attack end
+  end
+else Another type of failure  
+  B -> A : Please repeat
+end
+@enduml

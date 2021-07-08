@@ -1,0 +1,38 @@
+@startuml First
+' skinparam Style strictuml
+skinparam SequenceMessageAlignment center
+
+header Challenges
+title Checkout
+footer Page %page% of %lastpage%
+
+actor User as U #white
+participant "Theater :\nTheater 2" as T2 #white
+participant "Server : Server\n1" as S1 #white
+
+autonumber
+
+U -> T2 : Insert Card
+U -> T2 : Select date
+U <-- T2 : Offer Seat
+U -> T2 : Submit Order
+T2 -> S1 : Submit Order
+T2 <-- S1 : Order Confirmed
+U <-- T2 : Order Confirmed
+
+newpage Using A System
+autonumber stop
+
+actor ":User" as U1 #white
+actor "User: Customer" as UC #white
+participant ":System" as Sys #white
+participant ":A" as A #white
+
+UC -> Sys
+Sys -> A
+U1 -> Sys
+Sys -> A
+Sys <- A
+Sys -> UC
+
+@enduml

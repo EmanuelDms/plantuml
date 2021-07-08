@@ -1,0 +1,17 @@
+@startuml SecondaryGroupLabel
+actor Alice as A #black
+actor Bob as B #black
+A -> B : Authentication Request
+A <-- B : Authentication Failure
+group My own label [My own label 2]
+  A -> Log : Log attack start
+  loop 1000 times
+    A -> B : DNS Attack
+    note right
+    where the 
+    attacks start
+    end note
+  end
+  A -> Log : Log attack end
+end
+@enduml
